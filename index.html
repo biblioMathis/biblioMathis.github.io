@@ -16,5 +16,12 @@
 		<a href="QuickMenu/index.html">Quick Menu Item Hover Effect</a><br>
 		<a href="QuickMenu/codesrc.txt">Code source</a>
 	</div>
+	<div class="toggle" onclick="toggle();"></div>
+	<script type="text/javascript">
+		function toggle() {
+			const body = document.querySelector('body');
+			body.classList.toggle('light');
+		}
+	</script>
 </body>
 </html>
