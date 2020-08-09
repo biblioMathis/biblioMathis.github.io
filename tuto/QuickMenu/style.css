@@ -49,7 +49,7 @@ ul li a:before{
 }
 @media (max-width: 600px){
 	ul li a:before{
-		font-size: 1.5em;
+		font-size: 1.8em;
 	}
 }
 ul li:hover a:before{

@@ -1,57 +1,81 @@
 *{
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	text-align: center;
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family:sans-serif;
 	color: #fff;
 }
 body{
+	background-color: #262626;
+}
+section{
+	position: relative;
+	width: 100%;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	min-height: 100vh;
-	background: #000;
 }
-a:hover{
-	text-decoration: white underline;
-}
-body.light{
-	background: #fff;
-}
-body.light a:hover{
-	text-decoration: black underline;
-}
-body.light *{
-	color: #000;
-}
-.toggle{
-	position: absolute;
-	top: 30px;
-	right: 150px;
-	width: 20px;
-	height: 20px;
-	font-size: 18px;
-	border-radius: 50%;
-	background-color: #d1dae3;
-	color: #d1dae3;
-	font-family: consolas;
-	cursor:pointer;
-	transition: 0.5s;
+ul{
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 }
-.toggle:before{
+ul li{
+	list-style: none;
+}
+ul li a{
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3em;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+}
+ul li a:before{
+	content: attr(data-text);
 	position: absolute;
-	content: 'Light Mode';
-	left: 25px;
-	white-space: nowrap;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -1;
+	text-align: center;
+	font-size: 3em;
+	color: #2196f3;
+	opacity: 0;
+	line-height: 100vh;
+	transition: 0.5s;
 }
-body.light .toggle{
-	background: #091921;
-	color: #091921;
+@media (max-width: 600px){
+	ul li a:before{
+		font-size: 1.8em;
+	}
+}
+ul li:hover a:before{
+	opacity: 1;
 
 }
-body.light .toggle:before{
-	content: 'Dark Mode';
+body section .date{
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+body section .horaire{
+	position: fixed;
+	top: 35px;
+	left: 10px;
+}
+#minute:before{
+	content: ' : ';
+}
+#seconde:before{
+	content: ' : ';
+}
+#annee:before{
+	content: ' / ';
+}
+#mois:before{
+	content: ' / ';
 }

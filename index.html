@@ -1,27 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>biblioMathis</title>
+	<title>QuickMenu</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div>
-		<a href="particules/index.html">Particules Background Animation Effects</a><br>
-		<a href="particules/codesrc.txt">Code source</a><br><br>
-		<a href="clock/index.html">Javascript Clock</a><br>
-		<a href="clock/codesrc.txt">Code source</a><br><br>
-		<a href="Dark and Light Mode/index.html">Dark and Light Mode</a><br>
-		<a href="Dark and Light Mode/codesrc.txt">Code source</a><br><br>
-		<a href="QuickMenu/index.html">Quick Menu Item Hover Effect</a><br>
-		<a href="QuickMenu/codesrc.txt">Code source</a>
-	</div>
-	<div class="toggle" onclick="toggle();"></div>
-	<script type="text/javascript">
-		function toggle() {
-			const body = document.querySelector('body');
-			body.classList.toggle('light');
+	
+	<section>
+		<h1 class="date"><span id="jour"></span><span id="mois"></span><span id="annee"></span></h1>
+		<h1 class="horaire"><span id="heure"></span><span id="minute"></span><span id="seconde"></span></h1>
+		<ul>
+			<li><a href="#" data-text='Home'>Home</a></li>
+			<li><a href="tuto/index.html" data-text='Tuto'>Tuto</a></li>
+			<li><a href="#" data-text='Services'>Services</a></li>
+			<li><a href="#" data-text='Team'>Team</a></li>
+			<li><a href="#" data-text='Contact' id="secret" onclick="i++;">Contact</a></li>
+		</ul>
+		
+	</section>
+<script type="text/javascript">
+		let i = 0;
+		function checkNumberDigits(myNumber)
+		{
+			myNumber = myNumber.toString();
+
+			if ( myNumber.length < 2 )
+			{
+				return "0" + myNumber;
+			}
+
+			return myNumber;
 		}
+		const heure = document.querySelector('#heure');
+		const minute = document.querySelector('#minute');
+		const seconde = document.querySelector('#seconde');
+		const jour = document.querySelector('#jour');
+		const mois = document.querySelector('#mois');
+		const annee = document.querySelector('#annee');
+		const secret = document.querySelector('#secret');
+		
+		setInterval(() => {
+			
+			let day = new Date();
+			let y = day.getFullYear();
+			let mo = day.getMonth();
+			let j = day.getDate();
+			let h = day.getHours();
+			let m = day.getMinutes();
+			let s = day.getSeconds();
+			if (i>0) {let att = secret.setAttribute("data-text", i);}
+			if (i==20) {secret.setAttribute("href", "contact/index.html")}
+			
+			heure.innerHTML = checkNumberDigits(h);
+			minute.innerHTML = checkNumberDigits(m);
+			seconde.innerHTML = checkNumberDigits(s);
+			jour.innerHTML = checkNumberDigits(j);
+			mois.innerHTML = checkNumberDigits(mo+1);
+			annee.innerHTML = y ;
+			
+			
+		})
+
+
 	</script>
 </body>
 </html>
