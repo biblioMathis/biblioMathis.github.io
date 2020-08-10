@@ -11,11 +11,8 @@
 		<h1 class="date"><span id="jour"></span><span id="mois"></span><span id="annee"></span></h1>
 		<h1 class="horaire"><span id="heure"></span><span id="minute"></span><span id="seconde"></span></h1>
 		<ul>
-			<li><a href="#" data-text='Home'>Home</a></li>
 			<li><a href="tuto/index.html" data-text='Tuto'>Tuto</a></li>
-			<li><a href="#" data-text='Services'>Services</a></li>
-			<li><a href="#" data-text='Team'>Team</a></li>
-			<li><a href="#" data-text='Contact' id="secret" onclick="i++;">Contact</a></li>
+			<li><a href="contact/index.html" data-text='Contact' onclick="i++;">Contact</a></li>
 		</ul>
 		
 	</section>
@@ -32,14 +29,27 @@
 
 			return myNumber;
 		}
+		function milli(myNumber)
+		{
+			myNumber = myNumber.toString();
+
+			if ( myNumber.length < 2 )
+			{
+				return "00" + myNumber;
+			}
+			if ( myNumber.length < 3 )
+			{
+				return "0" + myNumber;
+			}
+
+			return myNumber;
+		}
 		const heure = document.querySelector('#heure');
 		const minute = document.querySelector('#minute');
 		const seconde = document.querySelector('#seconde');
 		const jour = document.querySelector('#jour');
 		const mois = document.querySelector('#mois');
 		const annee = document.querySelector('#annee');
-		const secret = document.querySelector('#secret');
-		
 		setInterval(() => {
 			
 			let day = new Date();
@@ -49,12 +59,11 @@
 			let h = day.getHours();
 			let m = day.getMinutes();
 			let s = day.getSeconds();
-			if (i>0) {let att = secret.setAttribute("data-text", i);}
-			if (i==20) {secret.setAttribute("href", "contact/index.html")}
+			let mi = day.getMilliseconds();
 			
 			heure.innerHTML = checkNumberDigits(h);
 			minute.innerHTML = checkNumberDigits(m);
-			seconde.innerHTML = checkNumberDigits(s);
+			seconde.innerHTML = checkNumberDigits(s) + ' : ' + milli(mi);
 			jour.innerHTML = checkNumberDigits(j);
 			mois.innerHTML = checkNumberDigits(mo+1);
 			annee.innerHTML = y ;
