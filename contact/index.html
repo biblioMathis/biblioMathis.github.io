@@ -3,15 +3,44 @@
 <head>
 	<title>Contact</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet"> 
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
-	<ul>
-		<li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
-	</ul>
+
+	<a href="https://www.facebook.com/profile.php?id=100009261890734"><i class="fab fa-facebook-messenger"></i></a>
+	<a href="https://github.com/biblioMathis/biblioMathis.github.io"><i class="fab fa-github"></i></a>
+	<a id="copy"><i class="fab fa-discord"></i></a>
+	<input id="input" name="prodId" type="text" value="mathis#6451">
+
+	<div><div id="text"></div></div>
+	<script type="text/javascript">
+		function copy() {
+			var copyText = document.querySelector("#input");
+			copyText.select();
+			document.execCommand("copy");
+			var Texta = document.querySelector("#text");
+			Texta.style.opacity = 1;
+			Texta.innerHTML = "Copied!";
+			var op = 1;
+			var i = setInterval(Textenbas, 50);
+			
+			function Textenbas(){
+				if (op > 0) {
+					op-= 0.05;
+					Texta.style.opacity = op;
+				}else{
+					 clearInterval(i);
+				}
+			}
+		}
+
+		document.querySelector("#copy").addEventListener("click", copy);
+
+	</script>
 </body>
 </html>
+
+
