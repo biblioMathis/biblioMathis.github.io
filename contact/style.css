@@ -37,12 +37,16 @@ input{
 	top: -100px;
 
 }
-
-#text{
-	position: absolute;
-	top: 40vh;
-	left: 60vw;
-	width: 50px;
-	height: 20px;
+a:before{
+	content: attr(data-text);
 	color: #fff;
+	font-size: 20px;
+	opacity: 1;
+	position: absolute;
+	padding-left: 8px;
+	padding-top: 3px;
+	opacity: 0;
+}
+a:active:before{
+	opacity: 1;
 }

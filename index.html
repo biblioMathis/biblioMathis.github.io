@@ -6,72 +6,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	
 	<section>
-		<h1 class="date"><span id="jour"></span><span id="mois"></span><span id="annee"></span></h1>
-		<h1 class="horaire"><span id="heure"></span><span id="minute"></span><span id="seconde"></span></h1>
-		<ul>
-			<li><a href="tuto/index.html" data-text='Tuto'>Tuto</a></li>
-			<li><a href="contact/index.html" data-text='Contact' onclick="i++;">Contact</a></li>
-		</ul>
-		
+		<h1 class="date" id="date"></h1>
+		<h1 class="aniv" id="aniv"></h1>
+		<a href="Clock/index.html">Clock</a>
+		<a href="contact/index.html">Contact</a>
+		<h1 class="age" id="ageid"></h1>
+		<h1 class="mort" id="mortid"></h1>
 	</section>
-<script type="text/javascript">
-		let i = 0;
-		function checkNumberDigits(myNumber)
-		{
-			myNumber = myNumber.toString();
-
-			if ( myNumber.length < 2 )
-			{
-				return "0" + myNumber;
-			}
-
-			return myNumber;
-		}
-		function milli(myNumber)
-		{
-			myNumber = myNumber.toString();
-
-			if ( myNumber.length < 2 )
-			{
-				return "00" + myNumber;
-			}
-			if ( myNumber.length < 3 )
-			{
-				return "0" + myNumber;
-			}
-
-			return myNumber;
-		}
-		const heure = document.querySelector('#heure');
-		const minute = document.querySelector('#minute');
-		const seconde = document.querySelector('#seconde');
-		const jour = document.querySelector('#jour');
-		const mois = document.querySelector('#mois');
-		const annee = document.querySelector('#annee');
+	<script type="text/javascript">
+		const naissance = new Date('May 14, 2001 12:00:00');
+		const mort = new Date('May 14, 2101 00:00:00');
+		const date = document.querySelector('#date');
+		const ageid = document.querySelector('#ageid');
+		const aniv = document.querySelector('#aniv');
+		const mortid = document.querySelector('#mortid');
+		
 		setInterval(() => {
-			
+
+			let anniversaire = new Date('May 14, 2001 00:00:00');
 			let day = new Date();
-			let y = day.getFullYear();
-			let mo = day.getMonth();
-			let j = day.getDate();
-			let h = day.getHours();
-			let m = day.getMinutes();
-			let s = day.getSeconds();
-			let mi = day.getMilliseconds();
-			
-			heure.innerHTML = checkNumberDigits(h);
-			minute.innerHTML = checkNumberDigits(m);
-			seconde.innerHTML = checkNumberDigits(s) + ' : ' + milli(mi);
-			jour.innerHTML = checkNumberDigits(j);
-			mois.innerHTML = checkNumberDigits(mo+1);
-			annee.innerHTML = y ;
-			
-			
+			while (day.getFullYear()>= anniversaire.getFullYear()) {
+				let i = anniversaire.getFullYear();
+				i++;
+				anniversaire.setFullYear(i);
+			}
+
+			mortid.innerHTML = mort - day;
+			date.innerHTML = day.getTime();
+			ageid.innerHTML = day - naissance;
+			aniv.innerHTML = anniversaire - day;
 		})
-
-
 	</script>
 </body>
 </html>

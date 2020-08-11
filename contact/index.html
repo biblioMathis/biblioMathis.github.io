@@ -10,35 +10,23 @@
 </head>
 <body>
 
-	<a href="https://www.facebook.com/profile.php?id=100009261890734"><i class="fab fa-facebook-messenger"></i></a>
-	<a href="https://github.com/biblioMathis/biblioMathis.github.io"><i class="fab fa-github"></i></a>
-	<a id="copy"><i class="fab fa-discord"></i></a>
-	<input id="input" name="prodId" type="text" value="mathis#6451">
-
-	<div><div id="text"></div></div>
+	<a href="https://www.facebook.com/profile.php?id=100009261890734"><i class="fab fa-facebook-messenger" title="Ma page facebook"></i></a>
+	<a href="https://github.com/biblioMathis/biblioMathis.github.io" title="Lien vers le projet github"><i class="fab fa-github"></i></a>
+	<a title="Cliquer pour copier le code utilisateur" id="copy" data-text="Copied!"><i class="fab fa-discord"></i></a>
+	<input id="input" type="text" value="mathis#6451">
 	<script type="text/javascript">
 		function copy() {
 			var copyText = document.querySelector("#input");
 			copyText.select();
 			document.execCommand("copy");
-			var Texta = document.querySelector("#text");
-			Texta.style.opacity = 1;
-			Texta.innerHTML = "Copied!";
-			var op = 1;
-			var i = setInterval(Textenbas, 50);
 			
-			function Textenbas(){
-				if (op > 0) {
-					op-= 0.05;
-					Texta.style.opacity = op;
-				}else{
-					 clearInterval(i);
-				}
-			}
 		}
-
+		
 		document.querySelector("#copy").addEventListener("click", copy);
-
+		
+			
+			
+		
 	</script>
 </body>
 </html>
