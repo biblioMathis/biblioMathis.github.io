@@ -54,3 +54,8 @@ body section .mort{
 	bottom: 10px;
 	left: 10px;
 }
+@media(max-width: 800px){
+	h1{
+		font-size: 1.1em;
+	}
+}
