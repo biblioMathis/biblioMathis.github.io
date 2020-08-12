@@ -9,35 +9,29 @@
 	<section>
 		<h1 class="date" id="date"></h1>
 		<h1 class="aniv" id="aniv"></h1>
+		<a href="age/index.html">age</a>
+		<a href="book/index.html">book</a>
 		<a href="Clock/index.html">Clock</a>
 		<a href="contact/index.html">Contact</a>
-		<a href="book/index.html">book</a>
 		<h1 class="age" id="ageid"></h1>
 		<h1 class="mort" id="mortid"></h1>
 	</section>
 	<script type="text/javascript">
 		const naissance = new Date('May 14, 2001 12:00:00');
-		const mort = new Date('May 14, 2101 00:00:00');
-		const date = document.querySelector('#date');
-		const ageid = document.querySelector('#ageid');
-		const aniv = document.querySelector('#aniv');
-		const mortid = document.querySelector('#mortid');
-		
+		const mort = new Date('May 14, 2101 12:00:00');
 		setInterval(() => {
-
-			let anniversaire = new Date('May 14, 2001 00:00:00');
+			let anniversaire = new Date('May 14, 2001 12:00:00');
 			let day = new Date();
-			while (day.getFullYear()>= anniversaire.getFullYear()) {
+			while (anniversaire - day<0) {
 				let i = anniversaire.getFullYear();
 				i++;
 				anniversaire.setFullYear(i);
 			}
-
 			mortid.innerHTML = mort - day;
 			date.innerHTML = day.getTime();
 			ageid.innerHTML = day - naissance;
 			aniv.innerHTML = anniversaire - day;
-		})
+		});
 	</script>
 </body>
 </html>
