@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<button onclick="turnr()">precedent</button>
+	<section>
+		
+		<div class="left" id="left">
+			<img src="page3.jpg">
+		</div>
+		<div class="right" id="right">
+			<img src="page1.jpg">
+			<img src="page5.jpg">
+			<img src="page9.jpg">
+			<img src="page13.jpg">
+			<img src="page17.jpg">
+		</div>
+	</section>
+	<button onclick="turn()">suivant</button>
+	<script type="text/javascript">
+		function turn(){
+			// if (right.) {}
+			left.style.transform=`translateX(-191.5px)`;
+			right.style.transform=`translateX(-191.5px)rotateY(180deg)`;
+		}
+		function turnr(){
+			left.style.transform=`translateX(0px)`
+			right.style.transform=`translateX(0px)rotateY(0deg)`;
+		}
+
+
+	</script>
+</body>
+</html>
