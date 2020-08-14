@@ -8,30 +8,114 @@
 	<button onclick="turnr()">precedent</button>
 	<section>
 		
-		<div class="left" id="left">
-			<img src="page3.jpg">
-		</div>
-		<div class="right" id="right">
-			<img src="page1.jpg">
-			<img src="page5.jpg">
-			<img src="page9.jpg">
-			<img src="page13.jpg">
-			<img src="page17.jpg">
+		<div class="book" id="book">
+			<!-- <img src="page1.jpg">
+			<img src="page3.jpg"> -->
+			<div id="un" style="background-color: blue; --v:1;">
+				
+			</div>
+			<div id="deux" style="background-color: red;--v:2;">
+				
+			</div>
+			<div id="trois" style="background-color: green;--v:3;">
+				
+			</div>
+			<div id="q" style="background-color: black;--v:4;">
+				
+			</div>
+			<div id="c" style="background-color: yellow;--v:5;">
+				
+			</div>
+			<div id="s" style="background-color: green;--v:6;">
+				
+			</div>
+			
+		
+		
 		</div>
 	</section>
 	<button onclick="turn()">suivant</button>
 	<script type="text/javascript">
+		
+		let currentChild = book.firstElementChild;
+		let previousAction = true;
+
+
 		function turn(){
-			// if (right.) {}
-			left.style.transform=`translateX(-191.5px)`;
-			right.style.transform=`translateX(-191.5px)rotateY(180deg)`;
+
+			if (previousAction) {
+				if (currentChild == book.firstElementChild) {
+					book.style.transform=`translateX(-191.5px)`;
+					currentChild.style.transform=`rotateY(180deg)`;
+					currentChild = currentChild.nextElementSibling;
+				}else if (currentChild == book.lastElementChild) {
+					currentChild.style.transform=`rotateY(180deg)`;
+				}else{
+					currentChild.style.transform=`rotateY(180deg)`;
+					currentChild = currentChild.nextElementSibling;
+				}
+			}
+			if (!previousAction) {
+				if (currentChild == book.firstElementChild && book.firstElementChild.style.transform ==`rotateY(180deg)`) {
+					currentChild = currentChild.nextElementSibling;
+					book.style.transform=`translateX(-191.5px)`;
+					currentChild.style.transform=`rotateY(180deg)`;
+
+				}else if (currentChild == book.firstElementChild) {
+					book.style.transform=`translateX(-191.5px)`;
+					currentChild.style.transform=`rotateY(180deg)`;
+					currentChild = currentChild.nextElementSibling;
+				}else if (currentChild == book.lastElementChild) {
+					currentChild.style.transform=`rotateY(180deg)`;
+				}else if (currentChild == book.lastElementChild.previousElementSibling) {
+					currentChild.style.transform=`rotateY(180deg)`;
+					currentChild = currentChild.nextElementSibling;
+				}else{
+					currentChild = currentChild.nextElementSibling;
+					currentChild.style.transform=`rotateY(180deg)`;
+					currentChild = currentChild.nextElementSibling;
+				}
+			}
+
+			previousAction = true;
 		}
 		function turnr(){
-			left.style.transform=`translateX(0px)`
-			right.style.transform=`translateX(0px)rotateY(0deg)`;
+			if (!previousAction) {
+				if (currentChild == book.lastElementChild) {
+					currentChild.style.transform=`rotateY(0deg)`;
+					currentChild = currentChild.previousElementSibling;
+				}else if (currentChild == book.firstElementChild) {
+					currentChild.style.transform=`rotateY(0deg)`;
+					book.style.transform=`translateX(0px)`;
+				}else{
+					currentChild.style.transform=`rotateY(0deg)`;
+					currentChild = currentChild.previousElementSibling;
+				}
+			}
+			if (previousAction) {
+				if (currentChild == book.lastElementChild && book.lastElementChild.style.transform ==`rotateY(0deg)`) {
+					currentChild = currentChild.previousElementSibling;
+					currentChild.style.transform=`rotateY(0deg)`;
+				}else if (currentChild == book.lastElementChild) {
+					currentChild.style.transform=`rotateY(0deg)`;
+					currentChild = currentChild.previousElementSibling;
+				}else if (currentChild == book.firstElementChild) {
+					currentChild.style.transform=`rotateY(0deg)`;
+					book.style.transform=`translateX(0px)`;
+				}else if (currentChild == book.firstElementChild.nextElementSibling) {
+					currentChild.style.transform=`rotateY(0deg)`;
+					currentChild = currentChild.previousElementSibling;
+				}else{
+					currentChild = currentChild.previousElementSibling;
+					currentChild.style.transform=`rotateY(0deg)`;
+					currentChild = currentChild.previousElementSibling;
+				}
+			}
+			previousAction = false;
+
 		}
 
 
-	</script>
+</script>
 </body>
 </html>

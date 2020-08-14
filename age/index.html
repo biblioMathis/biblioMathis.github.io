@@ -10,7 +10,7 @@
 		<h1>Your age</h1>
 	</section>
 	<section>
-		<input type="datetime-local" name="age" id="age" value="">
+		<input type="datetime-local" name="ani" id="ani" value="">
 	</section>
 	<section>
 		<h2 id="ages"></h2>
@@ -29,23 +29,27 @@
 			}
 			return x;
 		}
-		let age = document.querySelector('#age');
+		
 		let day = new Date();
-		age.value = day.getFullYear() + '-' + digit(day.getMonth()+1) + '-' + digit(day.getDate()) + 'T'+ digit(day.getHours())+':'+digit(day.getMinutes()+':'+digit(day.getSeconds()));
+		ani.value = day.getFullYear() + '-' + digit(day.getMonth()+1) + '-' + digit(day.getDate()) + 'T'+ digit(day.getHours())+':'+digit(day.getMinutes()+':'+digit(day.getSeconds()));
 		
 		setInterval(() => {
 			day = new Date();
-			let anidate = new Date(age.value);
-			let diff = day-anidate;
+			let anidate = new Date(ani.value);
+			
+			let age = day-anidate;
+			
 			let diffy = day.getFullYear()-anidate.getFullYear();
+			
 			let i;
 			day.getDate()-anidate.getDate()<0 ? i = 1 : i = 0;
 			let diffm = 12*diffy + day.getMonth()-anidate.getMonth()-i;
-			ages.innerHTML = Math.trunc((diff)/1000) + " second(s)";
-			agemi.innerHTML =Math.trunc((diff)/1000/60) + " minute(s)";
-			ageh.innerHTML =Math.trunc((diff)/1000/60/60) + " hour(s)";
-			agej.innerHTML =Math.trunc((diff)/1000/60/60/24) + " day(s)";
-			agese.innerHTML =Math.trunc((diff)/1000/60/60/24/7) + " week(s)";
+			
+			ages.innerHTML = Math.trunc((age)/1000) + " second(s)";
+			agemi.innerHTML =Math.trunc((age)/1000/60) + " minute(s)";
+			ageh.innerHTML =Math.trunc((age)/1000/60/60) + " hour(s)";
+			agej.innerHTML =Math.trunc((age)/1000/60/60/24) + " day(s)";
+			agese.innerHTML =Math.trunc((age)/1000/60/60/24/7) + " week(s)";
 			agemo.innerHTML =diffm + " month(s)";
 			agea.innerHTML =diffy + " year(s)";
 		})
