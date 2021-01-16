@@ -2,18 +2,32 @@
 <html>
 <head>
 	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<section>
 		<input type="number" name="" id="un"> 
-		<input type="number" name="" id="deux">
-		<p id="res" style="color: white"></p>
+		<input type="number" name="" id="deux"><br>
 	</section>
+	<p id="res"> </p>
+	<section>
+		<input type="number" name="" id="un1"> + 
+		<input type="number" name="" id="deux1"><br>
+	</section>
+	<p id="res1"> </p>
 	<script type="text/javascript">
 		setInterval(() => {
 			var trois=parseInt(un.value,10)**parseInt(deux.value,10)
 			if (un.value!='' && deux.value!='') {
 				res.innerHTML=trois
+			}else{
+				res.innerHTML=0
+			}
+			var trois1=parseInt(un1.value,10)**parseInt(deux1.value,10)
+			if (un1.value!='' && deux1.value!='') {
+				res1.innerHTML=trois1
+			}else{
+				res1.innerHTML=0
 			}
 		})
 
@@ -22,16 +36,30 @@
 
 	</script>
 	<style type="text/css">
+		h1{
+			text-align: center;
+		}
 		body{
+			color: #fff;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			height: 90vh;
 			width: 99%;
+			flex-direction: column;
 			background-color: black;
+		}
+		section{
+			
 		}
 		#deux{
 			transform: translate(0,-20px);
+		}
+		#res{
+			text-align: center;
+		}
+		input{
+			width: 50px;
 		}
 	</style>
 
