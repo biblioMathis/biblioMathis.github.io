@@ -18,18 +18,23 @@ function ajaxGet(url, callback) {
     req.send(null);
 }
 
-ajaxGet("http://osu.ppy.sh/api/get_user_recent?k=84025557a7f8c38e04d30f6c30ad6f36f5aa2c56&u=[MATHIS]&m=3&limit=50", function (reponse) {
-    var mania = JSON.parse(reponse);
+    ajaxGet("http://osu.ppy.sh/api/get_user_recent?k=84025557a7f8c38e04d30f6c30ad6f36f5aa2c56&u=[MATHIS]&m=3&limit=50", function (reponse) {
+        var mania = JSON.parse(reponse);
 
-    var a = document.getElementById("mania");
-    for (var i =0; i <= mania.length - 1; i++) {
-    	if (mania[i].rank!="F") {
-    	a.innerHTML += "<p>map : <a href='https://osu.ppy.sh/beatmaps/"+mania[i].beatmap_id+"?mode=mania'>"+mania[i].beatmap_id+"</a>      score : " + mania[i].score +  " " + mania[i].rank + "<p>";
-    	
-    	}
-    }
-   
+        var a = document.getElementById("gauchem");
+        var b = document.getElementById("droitem");
+        for (var i =0; i <= mania.length - 1; i++) {
+           if (mania[i].rank!="F") {
+             a.innerHTML += "<p>map : <a href='https://osu.ppy.sh/beatmaps/"+mania[i].beatmap_id+"?mode=mania'>"+mania[i].beatmap_id+"</a></p>";
+             b.innerHTML += "<p>score : " + mania[i].score +  " " + mania[i].rank +"</p>" ;
+         }
+     }
 
 
 
-});
+
+ });
+
+
+
+

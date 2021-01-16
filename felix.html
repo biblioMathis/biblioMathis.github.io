@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<section>
+		<input type="number" name="" id="un"> 
+		<input type="number" name="" id="deux">
+		<p id="res"></p>
+	</section>
+	<script type="text/javascript">
+		setInterval(() => {
+			var trois=parseInt(un.value,10)**parseInt(deux.value,10)
+			if (un.value!='' && deux.value!='') {
+				res.innerHTML=trois
+			}
+		})
+
+
+
+
+	</script>
+	<style type="text/css">
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 90vh;
+			width: 99%;
+
+		}
+		#deux{
+			transform: translate(0,-20px);
+		}
+	</style>
+
+
+</body>
+</html>
