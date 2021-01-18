@@ -14,6 +14,14 @@ section{
 	display: flex;
 	flex-direction: column;
 }
+#rafter:after{
+	position: absolute;
+	content: attr(data-after);
+	font-size: 1.5em;
+	transform: translate(10px,13px);
+	color: white;
+
+}
 input[type=text]{
 	margin: 10px;
 	height: 33px;
@@ -65,7 +73,7 @@ input[type=submit]{
 }
 #oui{
 
-	/*	opacity: 0;*/
+	opacity: 0;
 	position: absolute;
 	z-index: -1;
 	color: red;

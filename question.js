@@ -23,14 +23,15 @@ function copy() {
 
 function ok(){
 	var reponse = "";
-	for (var i = r.value.length - 1; i >= 0; i--) {
+	var rep = r.value.trim();
+	for (var i = rep.length - 1; i >= 0; i--) {
 		reponse+=Math.floor(Math.random()*Math.floor(30)).toString(30);
 	}
 	reponse = reponse.split('');
 	for (var i = reponse.length - 1; i >= 0; i--) {
-		reponse[i]+=r.value[i];
+		reponse[i]+=rep[i];
 	}
-	reponse = reponse.join('');
+	reponse = reponse.join('').trim();
 	console.log(reponse);
 	a.href =  "./get.html?q=" + q.value + "&&r=" + reponse;
 	window.location = a.href;
@@ -48,12 +49,31 @@ function question() {
 
 	q.innerHTML = question[0];
 	url.value = window.location;
+	var styleElem = document.head.appendChild(document.createElement("style"));
+
 	setInterval(() => {
 		if (r.value==res) {
 			oui.style.opacity="1";
+			styleElem.innerHTML = "#rafter:after {content: '';}";
 		}else{
 			oui.style.opacity="0";
 		}
+
+		const parsed = parseFloat(r.value);
+		if (!isNaN(parsed) && r.value!=res) {
+			if (parsed>parseFloat(res)) {
+				styleElem.innerHTML = "#rafter:after {content: '↓';}";
+			}else if (parsed<parseFloat(res)) {
+				styleElem.innerHTML = "#rafter:after {content: '↑';}";
+			}else{
+				styleElem.innerHTML = "#rafter:after {content: '≈';}";
+			}
+
+		}else{
+			styleElem.innerHTML = "#rafter:after {content: '';}";
+		}
+
+
 	});
 
 
