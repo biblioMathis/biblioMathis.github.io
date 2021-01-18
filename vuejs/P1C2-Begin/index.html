@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mon Application Vue.js</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ restaurantName }}</h1>
+		<p class="description">
+			Bienvenue dans notre café {{ restaurantName }} ! Nous sommes réputés pour notre
+			pain et nos merveilleuses pâtisseries. Faites vous plaisir dès le matin
+			ou avec un goûter réconfortant. Mais attention, vous verrez qu'il est
+			difficile de s'arrêter.
+		</p>
+		<footer class="footer">
+			<p>Copyright {{ restaurantName }} {{ date }}</p>
+		</footer>
+	</div>
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				restaurantName: "la belle vue",
+				date: new Date().getFullYear()
+			}
+		})
+	</script>
+</body>
+</html>

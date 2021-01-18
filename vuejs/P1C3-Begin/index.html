@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mon Application Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ restaurantName }}</h1>
+    <p class="description">
+      Bienvenue dans notre café {{ restaurantName }} ! Nous sommes réputés pour notre
+      pain et nos merveilleuses pâtisseries. Faites vous plaisir dès le matin
+      ou avec un goûter réconfortant. Mais attention, vous verrez qu'il est
+      difficile de s'arrêter.
+    </p>
+    <h2>Contactez nous</h2>
+      <p>Adresse : {{ address }}</p>
+      <p>Téléphone : {{ phone }}</p>
+      <p>Email : {{ email }}</p>
+      <p>Horaires :</p>
+      <ul>
+        <li>L-V: 06:00 à 16:00</li>
+        <li>Samedi: 07:00 à 14:00</li>
+        <li>Dimanche: 07:00 à 12:00</li>
+      </ul>
+    <footer class="footer">
+      <p>{{ copyright }}</p>
+    </footer>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+          address: "18 avenue du Beurre, Paris, France",
+          email: "hello@cafewithavue.bakery",
+          phone: "01 88 88 88 88",
+          restaurantName: "Café avec vue"
+        },
+        computed: {
+          copyright() {
+            const currentYear = new Date().getFullYear()
+
+            return `Copyright ${this.restaurantName} ${currentYear}`
+          }
+        }
+    })
+  </script>
+</body>
+</html>
