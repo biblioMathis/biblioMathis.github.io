@@ -56,7 +56,7 @@ function question() {
 	url.value = window.location;
 	var styleElem = document.head.appendChild(document.createElement("style"));
 // la verification de la question
-	setInterval(() => {
+setInterval(() => {
 		// vérifier si c'est égale à la réponse si c'est un nombre verifier avec parsefloat pour plus de précision
 		if (r.value.trim()==res || parseFloat(r.value)==parseFloat(res)) {
 			oui.style.opacity="1";
@@ -82,6 +82,25 @@ function question() {
 	});
 // les listener pour les click
 
-	document.querySelector("#copy").addEventListener("click", copy);
-	document.querySelector("#copy").addEventListener("click", toggle);
+document.querySelector("#copy").addEventListener("click", copy);
+document.querySelector("#copy").addEventListener("click", toggle);
+}
+function calcul(){
+	function f() {
+		foc.value=1;
+	}
+	function fo(){
+		foc.value=0;
+	}
+	setInterval(() => {
+		if (foc.value==0) {
+			if (q.value.search(/\d/)==0){
+				r.value=eval(q.value);
+			}else{
+				r.value="";
+			}
+		}
+	});
+	document.querySelector("#r").addEventListener("focus", f);
+	document.querySelector("#q").addEventListener("focus", fo);
 }
