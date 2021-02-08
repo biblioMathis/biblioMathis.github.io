@@ -104,14 +104,14 @@ span{
 .cskate{
 	position: absolute;
 	width: 20vw;
-	height: 45vh;
+	height: 34vh;
 	z-index: -1;
 	animation: skate 5s ease-in-out infinite;
 	transform-origin: top center;
 }
 @media (orientation: landscape) {
   .cskate {
-    height: 45vw;
+    height: 55vw;
   }
 }
 @keyframes skate{
