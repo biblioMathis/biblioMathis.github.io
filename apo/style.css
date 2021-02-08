@@ -3,8 +3,8 @@
 	padding: 0px;
 }
 html{
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 }
 body{
 	background-color: black;
@@ -14,19 +14,28 @@ body{
 	background: linear-gradient(#e66465, #9198e5, #e66465);
 	background-size: cover;
 }
+
 #hbc{
 	height: 100vh;
-	width: 100vw;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 #hb{
 	cursor: pointer;
 }
+.fleche{
+	text-align: center;
+	font-weight: bold;
+	animation: fleche 1.6s linear infinite;
+	font-size: 5vw;
+}
+
 span{
-	animation: oui 1s linear infinite;
-	animation-delay: calc(var(--i)/20);
+	animation: oui 1.6s linear infinite;
+	animation-delay: calc(var(--i)/10);
 	font-size: 5vw;
 }
 @keyframes oui{
@@ -35,11 +44,22 @@ span{
 		color: black;
 	}
 	50%{
-		font-size: 7vw;
+		font-size: 7.5vw;
 		color: red;
 	}
 	100%{
 		font-size: 5vw;
+		color: blue;
+	}
+}
+@keyframes fleche{
+	0%{
+		color: black;
+	}
+	50%{
+		color: red;
+	}
+	100%{
 		color: blue;
 	}
 }
@@ -74,4 +94,35 @@ span{
 }
 .card{
 	margin: 20px;
+}
+.skate{
+	position: absolute;
+	bottom: 0;
+	max-width: 20vw;
+	mix-blend-mode: exclusion;
+}
+.cskate{
+	position: absolute;
+	width: 20vw;
+	height: 45vh;
+	z-index: -1;
+	animation: skate 5s ease-in-out infinite;
+	transform-origin: top center;
+}
+@media (orientation: landscape) {
+  .cskate {
+    height: 45vw;
+  }
+}
+@keyframes skate{
+	0%{
+		transform: rotate(90deg);
+	}
+	50%{
+		transform: rotate(-90deg);
+	}
+
+	100%{
+		transform: rotate(90deg);
+	}
 }
