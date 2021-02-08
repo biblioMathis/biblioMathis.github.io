@@ -25,25 +25,22 @@ body{
 #hb{
 	cursor: pointer;
 }
-span:hover{
-	font-size: 1em;
-}
 span{
 	animation: oui 1s linear infinite;
 	animation-delay: calc(var(--i)/20);
-	font-size: 3em;
+	font-size: 5vw;
 }
 @keyframes oui{
 	0%{
-		font-size: 3em;
+		font-size: 5vw;
 		color: black;
 	}
 	50%{
-		font-size: 4em;
+		font-size: 7vw;
 		color: red;
 	}
 	100%{
-		font-size: 3em;
+		font-size: 5vw;
 		color: blue;
 	}
 }
@@ -66,8 +63,8 @@ span{
 	opacity: 1!important;
 }
 .image img{
-	max-width: 300px;
-	max-height: 300px;
+	max-width: 250px;
+	max-height: 250px;
 	margin: 10px;
 	border-radius: 10px;
 }
@@ -75,4 +72,7 @@ span{
 	text-align: center;
 	font-size: 2em;
 	text-transform: initial;
+}
+.card{
+	margin: 20px;
 }
