@@ -13,6 +13,7 @@ body{
 	font-family: sans-serif;
 	background: linear-gradient(#e66465, #9198e5, #e66465);
 	background-size: cover;
+	background-attachment: fixed;
 	overflow: hidden;
 }
 
