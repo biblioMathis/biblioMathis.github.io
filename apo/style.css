@@ -125,7 +125,7 @@ span{
 	}
 }
 #r{
-	position: fixed;
+	position: absolute;
 	left: 10px;
 	top: 10px;
 	cursor: pointer;
