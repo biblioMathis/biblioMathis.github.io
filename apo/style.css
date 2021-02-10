@@ -102,7 +102,7 @@ span{
 .cskate{
 	position: absolute;
 	width: 20vw;
-	height: 55vw;
+	height: 49vw;
 	z-index: -1;
 	animation: skate 5s ease-in-out infinite;
 	transform-origin: top center;
