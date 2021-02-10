@@ -103,20 +103,17 @@ span{
 	width: 20vw;
 	height: 49vw;
 	z-index: -1;
-	animation: skate 1s ease-in-out infinite;
+	animation: skate 2s ease-in-out infinite;
 	transform-origin: top center;
 }
 
 @keyframes skate{
 	0%{
-		transform: rotate(180deg);
-	}
-	50%{
-		transform: rotate(-180deg);
+		transform: rotate(0deg);
 	}
 
 	100%{
-		transform: rotate(180deg);
+		transform: rotate(360deg);
 	}
 }
 #r{
