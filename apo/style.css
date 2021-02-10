@@ -70,18 +70,14 @@ span{
 	top: 0;
 	width: 100%;
 	margin: auto;
-	opacity: 0;
+	display: none;
 	transition: 1s;
 	z-index: -1;
-	display: flex;
 	justify-content: center;
 }
 .cont{
 	display: flex;
 	flex-direction: column;
-}
-.toggle{
-	opacity: 1!important;
 }
 .image img{
 	max-width: 250px;
@@ -125,7 +121,7 @@ span{
 	}
 }
 #r{
-	position: absolute;
+	position: fixed;
 	left: 10px;
 	top: 10px;
 	cursor: pointer;

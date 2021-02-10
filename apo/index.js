@@ -1,10 +1,10 @@
 function bom() {
-	ordi.classList.toggle("toggle");
+	ordi.style.display="flex";
 	hbc.style.display="none";
 	body.style.overflowY="scroll";
 }
 function retour(){
-	ordi.classList.remove("toggle");
+	ordi.style.display="none";
 	hbc.style.display="flex";
 	body.style.overflowY="hidden";
 }
