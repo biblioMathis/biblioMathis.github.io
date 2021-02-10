@@ -97,7 +97,6 @@ span{
 	position: absolute;
 	bottom: 0;
 	max-width: 20vw;
-	mix-blend-mode: exclusion;
 }
 .cskate{
 	position: absolute;
