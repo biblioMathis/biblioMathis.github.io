@@ -103,7 +103,7 @@ span{
 	width: 20vw;
 	height: 49vw;
 	z-index: -1;
-	animation: skate 2s ease-in-out infinite;
+	animation: skate 2s linear infinite;
 	transform-origin: top center;
 }
 
